@@ -48,12 +48,16 @@ def all_repos():
     return [r for r in out if r["name"].lower() not in skip]
 
 
+FEAT_ORDER = {"illip-ai": 0, "quantumshield-biodefense-os": 1}
+
+
 def order(repos):
-    # featured flagships first, then originals, then forks; within each by stars/recency
+    # flagships in fixed order, then originals, then forks; within each by stars/recency
     def rank(r):
-        if r["name"].lower() in FEATURE:
-            return 0
-        return 2 if r.get("fork") else 1
+        k = r["name"].lower()
+        if k in FEAT_ORDER:
+            return FEAT_ORDER[k]
+        return 100 if r.get("fork") else 10
     return sorted(repos, key=lambda r: (
         rank(r), -(r.get("stargazers_count") or 0),
         tuple(-ord(c) for c in (r.get("pushed_at") or "")), r["name"].lower()))
