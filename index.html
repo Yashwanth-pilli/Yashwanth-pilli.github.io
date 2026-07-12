@@ -3,220 +3,359 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Yashwanth Pilli — Local-First AI Systems Engineer</title>
-<meta name="description" content="Yashwanth Pilli — AI systems builder. I build AI that runs on your own machine. Creator of ILLIP AI and QuantumShield BioDefense OS."/>
+<title>Yashwanth Pilli — AI &amp; Backend Engineer</title>
+<meta name="description" content="Yashwanth Dharan Tej Pilli — AI builder, backend engineer, co-founder of utter.sh. Creator of ILLIP AI. Enter the dojo."/>
 <script>document.documentElement.className+=' js';</script>
 <style>
-  :root{
-    --bg:#0b0d12; --bg2:#0f1219; --panel:#141824; --line:#232a3a;
-    --text:#e6e9f0; --muted:#9aa4b8; --violet:#8b7bff; --violet2:#6d5efc; --green:#00e676;
-    --radius:16px; --max:1080px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--bg); color:var(--text);
-    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.65; -webkit-font-smoothing:antialiased;
-    background-image:
-      radial-gradient(60rem 40rem at 80% -10%, rgba(139,123,255,.18), transparent 60%),
-      radial-gradient(50rem 40rem at -10% 20%, rgba(0,230,118,.10), transparent 55%);
-    background-attachment:fixed;
-  }
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  /* nav */
-  nav{
-    position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
-    background:rgba(11,13,18,.72);border-bottom:1px solid var(--line);
-  }
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{font-weight:800;letter-spacing:.5px}
-  .brand b{color:var(--violet)}
-  .navlinks{display:flex;gap:26px}
-  .navlinks a{color:var(--muted);font-size:.95rem;transition:color .2s}
-  .navlinks a:hover{color:var(--text)}
-  @media(max-width:640px){.navlinks{display:none}}
-  /* hero */
-  header.hero{padding:96px 0 72px}
-  .eyebrow{
-    display:inline-block;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;
-    color:var(--violet);border:1px solid var(--line);border-radius:999px;
-    padding:6px 14px;margin-bottom:22px;background:var(--panel)
-  }
-  h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;font-weight:800;letter-spacing:-1px}
-  h1 .grad{
-    background:linear-gradient(90deg,var(--violet),var(--green));
-    -webkit-background-clip:text;background-clip:text;color:transparent
-  }
-  .lead{color:var(--muted);font-size:clamp(1.05rem,2.4vw,1.3rem);max-width:640px;margin:22px 0 32px}
-  .cta{display:flex;flex-wrap:wrap;gap:14px}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem;
-    padding:12px 20px;border-radius:12px;border:1px solid var(--line);transition:.2s;
-    background:var(--panel)
-  }
-  .btn:hover{transform:translateY(-2px);border-color:var(--violet)}
-  .btn.primary{background:linear-gradient(90deg,var(--violet2),var(--violet));border:none;color:#fff}
-  .btn.primary:hover{box-shadow:0 10px 30px -10px var(--violet)}
-  /* sections */
-  section{padding:64px 0;border-top:1px solid var(--line)}
-  .kicker{color:var(--violet);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.78rem}
-  h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:8px 0 24px;font-weight:800;letter-spacing:-.5px}
-  .about p{color:var(--muted);max-width:760px;font-size:1.08rem}
-  .about p+p{margin-top:16px}
-  /* projects */
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  @media(max-width:760px){.grid{grid-template-columns:1fr}}
-  .card{
-    background:linear-gradient(180deg,var(--panel),var(--bg2));
-    border:1px solid var(--line);border-radius:var(--radius);padding:26px;
-    transition:.25s;position:relative;overflow:hidden
-  }
-  .card:hover{transform:translateY(-4px);border-color:var(--violet)}
-  .card::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--accent,var(--violet))}
-  .card.v{--accent:var(--violet)} .card.g{--accent:var(--green)}
-  .card h3{font-size:1.35rem;margin-bottom:4px}
-  .card .tag{color:var(--muted);font-size:.9rem;margin-bottom:14px;font-style:italic}
-  .card p{color:var(--muted);font-size:.98rem;margin-bottom:18px}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-  .chip{font-size:.78rem;padding:5px 11px;border-radius:999px;background:#0d1117;border:1px solid var(--line);color:var(--text)}
-  .card .links{display:flex;gap:16px;font-weight:600;font-size:.9rem}
-  .card .links a{color:var(--violet)} .card.g .links a{color:var(--green)}
-  .card .links a:hover{text-decoration:underline}
-  /* skills */
-  .skills{display:flex;flex-wrap:wrap;gap:10px}
-  .skill{padding:9px 16px;border-radius:10px;background:var(--panel);border:1px solid var(--line);font-size:.9rem}
-  .skill b{color:var(--violet)}
-  /* contact */
-  .contact-box{
-    background:linear-gradient(120deg,rgba(139,123,255,.12),rgba(0,230,118,.08));
-    border:1px solid var(--line);border-radius:var(--radius);padding:40px;text-align:center
-  }
-  .contact-box h2{margin-bottom:10px}
-  .contact-box p{color:var(--muted);margin-bottom:24px}
-  footer{padding:40px 0;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
-  .js .reveal{opacity:0;transform:translateY(18px);transition:.6s ease}
-  .reveal.in{opacity:1;transform:none}
+:root{
+  --void:#05060d; --ink:#eaf2ff; --muted:#9aa8c6; --line:#1d2740;
+  --violet:#8b7bff; --violet2:#6d5efc; --green:#00e676; --red:#ff3b6b; --gold:#ffd166;
+  --sans:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--violet);color:#0a0a12}
+
+/* ══════════ FIXED CINEMATIC STAGE (moonlit street) ══════════ */
+#stage{position:fixed;inset:0;z-index:0;overflow:hidden;
+  background:linear-gradient(180deg,#0a0f2a 0%,#141033 40%,#1a0e2e 70%,#060812 100%)}
+.moon{position:absolute;top:7%;right:12%;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle at 38% 38%,#fff 0%,#eef0ff 40%,#c9c6ff 70%,#a79ffb 100%);
+  box-shadow:0 0 90px 30px rgba(167,159,251,.45),0 0 160px 60px rgba(139,123,255,.22)}
+.moon::after{content:"";position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 62% 30%,rgba(120,110,200,.5) 3px,transparent 4px),
+             radial-gradient(circle at 40% 60%,rgba(120,110,200,.4) 6px,transparent 7px),
+             radial-gradient(circle at 68% 66%,rgba(120,110,200,.35) 4px,transparent 5px)}
+.stars{position:absolute;inset:0;
+  background-image:radial-gradient(1px 1px at 20% 15%,#fff,transparent),
+    radial-gradient(1px 1px at 45% 30%,#dfe,transparent),
+    radial-gradient(1px 1px at 70% 12%,#fff,transparent),
+    radial-gradient(1px 1px at 85% 40%,#cdf,transparent),
+    radial-gradient(1px 1px at 30% 50%,#fff,transparent),
+    radial-gradient(1px 1px at 60% 55%,#eef,transparent),
+    radial-gradient(2px 2px at 15% 65%,#fff,transparent),
+    radial-gradient(1px 1px at 90% 70%,#fff,transparent);
+  background-repeat:repeat;opacity:.8;animation:twinkle 4s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.4}}
+.skyline{position:absolute;left:0;right:0;bottom:22%;height:38%;
+  background:
+    linear-gradient(#0000,#05060d 92%),
+    repeating-linear-gradient(90deg,
+      #0c1024 0 40px,#0a0d1e 40px 46px,#0e1330 46px 92px,#0a0d1e 92px 100px,
+      #0c1226 100px 150px,#090c1c 150px 158px);
+  clip-path:polygon(0 40%,4% 40%,4% 20%,9% 20%,9% 55%,14% 55%,14% 12%,20% 12%,20% 45%,27% 45%,27% 28%,33% 28%,33% 60%,40% 60%,40% 18%,47% 18%,47% 48%,54% 48%,54% 8%,60% 8%,60% 52%,67% 52%,67% 30%,74% 30%,74% 58%,81% 58%,81% 22%,88% 22%,88% 46%,94% 46%,94% 14%,100% 14%,100% 100%,0 100%);
+  opacity:.9}
+.skyline::after{content:"";position:absolute;inset:0;
+  background-image:radial-gradient(2px 2px at 12% 60%,var(--gold),transparent),
+    radial-gradient(2px 2px at 35% 75%,var(--violet),transparent),
+    radial-gradient(2px 2px at 58% 40%,var(--gold),transparent),
+    radial-gradient(2px 2px at 78% 70%,var(--green),transparent),
+    radial-gradient(2px 2px at 90% 55%,var(--gold),transparent);opacity:.7;animation:twinkle 3s infinite alternate}
+.street{position:absolute;left:0;right:0;bottom:0;height:22%;
+  background:linear-gradient(180deg,#12152b,#070810);
+  border-top:2px solid rgba(139,123,255,.25);box-shadow:0 -18px 60px -20px rgba(139,123,255,.4)}
+.street::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:repeating-linear-gradient(90deg,var(--gold) 0 26px,transparent 26px 60px);opacity:.35}
+.scrim{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(120% 80% at 50% 30%,transparent 30%,rgba(5,6,13,.55) 75%,rgba(5,6,13,.85))}
+
+/* ══════════ FIGHTERS (silhouettes) ══════════ */
+#combat{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.fighter{position:absolute;bottom:22%;left:15%;width:64px;height:150px;transform-origin:bottom center;
+  filter:drop-shadow(0 0 10px rgba(139,123,255,.55))}
+.fighter *{position:absolute;background:#0a0b16;box-shadow:inset 0 0 0 1.5px rgba(139,123,255,.55)}
+.hero-f .head{width:26px;height:26px;border-radius:50%;left:19px;top:0}
+.hero-f .torso{width:26px;height:56px;border-radius:12px;left:19px;top:26px}
+.hero-f .arm{width:34px;height:11px;border-radius:8px;left:24px;top:34px;transform-origin:left center;transition:transform .12s ease}
+.hero-f .arm.back{top:40px;opacity:.7;transform:rotate(150deg)}
+.hero-f .arm.front{transform:rotate(140deg)}
+.hero-f .leg{width:12px;height:52px;border-radius:8px;top:78px;transform-origin:top center;transition:transform .12s ease}
+.hero-f .leg.back{left:20px;transform:rotate(12deg)}
+.hero-f .leg.front{left:32px;transform:rotate(-10deg)}
+.fighter{animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px)}}
+/* strikes */
+.hero-f.punch .arm.front{transform:rotate(0deg) scaleX(1.5)}
+.hero-f.kick  .leg.front{transform:rotate(-78deg) scaleX(1.35)}
+.hero-f.hit{animation:recoil .3s}
+@keyframes recoil{30%{transform:translateX(-8px)}}
+/* enemy */
+.enemy{position:absolute;bottom:22%;width:52px;height:120px;transform-origin:bottom center;
+  filter:drop-shadow(0 0 8px rgba(255,59,107,.5));transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .4s}
+.enemy *{position:absolute;background:#120810;box-shadow:inset 0 0 0 1.5px rgba(255,59,107,.6)}
+.enemy .head{width:22px;height:22px;border-radius:50%;left:15px;top:0}
+.enemy .torso{width:22px;height:46px;border-radius:10px;left:15px;top:22px}
+.enemy .arm{width:28px;height:9px;border-radius:6px;left:8px;top:30px;transform:rotate(20deg)}
+.enemy .leg{width:10px;height:42px;border-radius:6px;top:66px}
+.enemy .leg.a{left:16px;transform:rotate(-10deg)} .enemy .leg.b{left:26px;transform:rotate(12deg)}
+.enemy.ko{opacity:0}
+
+/* impact FX */
+.fx{position:absolute;pointer-events:none;font-family:var(--mono);font-weight:800;
+  transform:translate(-50%,-50%) scale(.4);opacity:0}
+.fx.burst{color:var(--gold);font-size:14px;letter-spacing:1px;text-shadow:0 0 12px var(--gold)}
+.fx.go{animation:pop .5s ease-out forwards}
+@keyframes pop{20%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}100%{opacity:0;transform:translate(-50%,-90px) scale(1)}}
+.star{position:absolute;width:60px;height:60px;transform:translate(-50%,-50%) scale(0);pointer-events:none;
+  background:radial-gradient(circle,var(--gold) 0%,rgba(255,209,102,.5) 30%,transparent 60%)}
+.star.go{animation:star .4s ease-out forwards}
+@keyframes star{40%{transform:translate(-50%,-50%) scale(1.4);opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(2)}}
+body.shake #stage,body.shake #combat{animation:shake .28s}
+@keyframes shake{25%{transform:translate(4px,2px)}50%{transform:translate(-5px,-2px)}75%{transform:translate(3px,-3px)}}
+
+/* calm mode: freeze combat */
+body.calm #combat{opacity:.25;filter:grayscale(.6)}
+body.calm .fighter,body.calm .enemy{animation:none!important}
+body.calm .stars,body.calm .skyline::after{animation:none}
+
+/* ══════════ INTRO INVITATION ══════════ */
+#intro{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 40%,#141033,#05060d 70%);text-align:center;padding:24px;transition:opacity .8s,visibility .8s}
+#intro.gone{opacity:0;visibility:hidden}
+.inv-eyebrow{font-family:var(--mono);letter-spacing:.3em;text-transform:uppercase;color:var(--violet);font-size:.8rem;margin-bottom:18px;opacity:0;animation:up .7s .2s forwards}
+.avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;border:2px solid var(--violet);
+  box-shadow:0 0 50px rgba(139,123,255,.6);margin-bottom:24px;background:
+   radial-gradient(circle at 40% 35%,var(--violet),var(--violet2) 60%,#241d55);opacity:0;animation:up .7s .35s forwards,float 3s ease-in-out infinite 1s;display:flex;align-items:center;justify-content:center;font-size:60px}
+.inv-title{font-size:clamp(1.5rem,5vw,2.6rem);font-weight:800;line-height:1.2;opacity:0;animation:up .7s .5s forwards}
+.inv-title b{color:var(--violet)}
+.inv-sub{color:var(--muted);margin:14px 0 30px;max-width:440px;opacity:0;animation:up .7s .65s forwards}
+.enter-btn{font-family:var(--mono);font-weight:700;letter-spacing:.15em;padding:15px 40px;border-radius:12px;cursor:pointer;
+  background:linear-gradient(90deg,var(--violet2),var(--violet));color:#fff;border:none;font-size:1rem;
+  box-shadow:0 12px 40px -12px var(--violet);opacity:0;animation:up .7s .8s forwards;transition:transform .2s}
+.enter-btn:hover{transform:translateY(-3px) scale(1.03)}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes float{50%{transform:translateY(-10px)}}
+
+/* ══════════ CONTENT ══════════ */
+#calm-toggle{position:fixed;top:16px;right:16px;z-index:50;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;
+  padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(10,12,22,.8);color:var(--muted);cursor:pointer;backdrop-filter:blur(6px)}
+#calm-toggle:hover{color:var(--ink);border-color:var(--violet)}
+main{position:relative;z-index:10}
+.wrap{max-width:1020px;margin:0 auto;padding:0 22px}
+section{padding:16vh 0;min-height:80vh;display:flex;align-items:center}
+.panel{background:rgba(7,9,18,.72);backdrop-filter:blur(9px);border:1px solid var(--line);border-radius:18px;
+  padding:34px;width:100%;box-shadow:0 30px 80px -30px #000}
+.kicker{font-family:var(--mono);color:var(--violet);letter-spacing:.25em;text-transform:uppercase;font-size:.75rem}
+h1{font-size:clamp(2.3rem,6.5vw,4.2rem);line-height:1.04;font-weight:800;letter-spacing:-1px;margin:14px 0}
+h1 .grad{background:linear-gradient(90deg,var(--violet),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;margin:6px 0 20px;letter-spacing:-.5px}
+.lead{color:var(--muted);font-size:clamp(1.05rem,2.3vw,1.28rem);max-width:640px;line-height:1.6}
+p.body{color:var(--muted);max-width:720px;line-height:1.7;margin-top:12px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;padding:12px 22px;border-radius:12px;border:1px solid var(--line);background:rgba(20,24,40,.7);transition:.2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--violet)}
+.btn.primary{background:linear-gradient(90deg,var(--violet2),var(--violet));border:none;color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,rgba(20,24,40,.8),rgba(10,12,22,.7));border:1px solid var(--line);border-radius:14px;padding:22px;transition:.25s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-4px);border-color:var(--violet)}
+.card::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--accent,var(--violet))}
+.card h3{font-size:1.2rem;margin-bottom:4px}
+.card .tag{color:var(--muted);font-size:.85rem;font-style:italic;margin-bottom:12px}
+.card p{color:var(--muted);font-size:.92rem;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.chip{font-family:var(--mono);font-size:.72rem;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:rgba(139,123,255,.06);color:#ccd6f0}
+.card .lk{font-weight:600;font-size:.85rem;color:var(--violet)}
+.skills{display:flex;flex-wrap:wrap;gap:9px}
+.skill{font-family:var(--mono);font-size:.82rem;padding:8px 14px;border-radius:9px;background:rgba(20,24,40,.7);border:1px solid var(--line)}
+.skill b{color:var(--violet)}
+.stat-row{display:flex;flex-wrap:wrap;gap:26px;margin-top:20px}
+.stat b{display:block;font-size:1.9rem;color:var(--green);font-family:var(--mono)}
+.stat span{color:var(--muted);font-size:.85rem}
+ul.exp{list-style:none;margin-top:14px}
+ul.exp li{padding:12px 0;border-top:1px solid var(--line);color:var(--muted)}
+ul.exp li b{color:var(--ink)}
+footer{position:relative;z-index:10;text-align:center;padding:44px 22px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);background:rgba(5,6,13,.6)}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in,.reveal.in{opacity:1;transform:none}
+.hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:20;font-family:var(--mono);font-size:.7rem;color:var(--muted);opacity:.7;animation:bob 2s infinite}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <div class="brand">YASHWANTH<b>.</b>PILLI</div>
-    <div class="navlinks">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
+<!-- cinematic backdrop -->
+<div id="stage">
+  <div class="moon"></div><div class="stars"></div>
+  <div class="skyline"></div><div class="street"></div>
+</div>
+<div class="scrim"></div>
 
-<header class="hero">
-  <div class="wrap">
-    <span class="eyebrow">▶ Local-First AI Systems Engineer</span>
+<!-- fighters -->
+<div id="combat">
+  <div class="fighter hero-f" id="hero">
+    <div class="head"></div><div class="torso"></div>
+    <div class="arm back"></div><div class="arm front"></div>
+    <div class="leg back"></div><div class="leg front"></div>
+  </div>
+</div>
+
+<!-- intro invitation -->
+<div id="intro">
+  <span class="inv-eyebrow">▶ Press start</span>
+  <!-- Replace the emoji avatar with your GIF: put avatar.gif in this repo and it loads automatically -->
+  <img class="avatar" src="avatar.gif" alt="Yashwanth" onerror="this.removeAttribute('src');this.textContent='🥷'"/>
+  <div class="inv-title"><b>Yashwanth Pilli</b> is inviting you<br/>to his workspace</div>
+  <div class="inv-sub">Step into the dojo — a moonlit street where every scroll lands a strike.</div>
+  <button class="enter-btn" id="enterBtn">ENTER THE DOJO →</button>
+</div>
+
+<button id="calm-toggle">⚔ Combat: ON</button>
+
+<main>
+  <!-- HERO -->
+  <section id="top"><div class="wrap"><div class="panel reveal">
+    <span class="kicker">▶ AI &amp; Backend Engineer · Co-founder, utter.sh</span>
     <h1>I build AI that runs on<br/><span class="grad">your own machine.</span></h1>
-    <p class="lead">No cloud leash. I turn ordinary laptops into private, offline AI systems — agent crews, memory, and real security tooling. Creator of ILLIP AI and QuantumShield BioDefense OS.</p>
+    <p class="lead">Computer-science engineer and AI builder. I ship real systems — multi-LLM backends, secure APIs, and automation — with a local-first, privacy-first mindset. Creator of ILLIP AI.</p>
     <div class="cta">
-      <a class="btn primary" href="https://github.com/Yashwanth-pilli" target="_blank" rel="noopener">View GitHub →</a>
+      <a class="btn primary" href="https://github.com/Yashwanth-pilli" target="_blank" rel="noopener">GitHub →</a>
       <a class="btn" href="https://www.linkedin.com/in/yashwanth-pilli-553b75342/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="mailto:yashwanthpilli2005@gmail.com">Email me</a>
+      <a class="btn" href="mailto:yashwanthpilli2005@gmail.com">Email</a>
     </div>
-  </div>
-</header>
+  </div></div></section>
 
-<section id="about" class="about">
-  <div class="wrap reveal">
-    <div class="kicker">About</div>
+  <!-- ABOUT -->
+  <section id="about"><div class="wrap"><div class="panel reveal">
+    <span class="kicker">About</span>
     <h2>Privacy-first by design.</h2>
-    <p>I'm an AI systems builder focused on <b style="color:var(--text)">local-first</b> software — systems where your data never leaves your device. I care about the craft: making powerful models genuinely usable on real, modest hardware, with the safety rails and polish of a product, not a demo.</p>
-    <p>My flagship, <b style="color:var(--text)">ILLIP AI</b>, is an entire AI company that lives inside one laptop — chat, an autonomous agent crew, long-term memory, and a governance gate that asks before it acts. Alongside it I build security tooling like <b style="color:var(--text)">QuantumShield BioDefense OS</b>, a real-time cyber command center.</p>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="wrap">
-    <div class="kicker reveal">Selected Work</div>
-    <h2 class="reveal">Projects</h2>
-    <div class="grid">
-      <div class="card v reveal">
-        <h3>ILLIP AI</h3>
-        <div class="tag">your AI company, in your device</div>
-        <p>A local-first AI platform: chat, an autonomous agent crew, long-term memory, a supervised governance gate, and a model store sized to your exact hardware. Fully offline on Ollama, with an optional free-cloud boost via <code>/cloud</code>. One-click setup. Not a wrapper — a whole system.</p>
-        <div class="chips">
-          <span class="chip">Python</span><span class="chip">FastAPI</span>
-          <span class="chip">React</span><span class="chip">Ollama</span><span class="chip">Playwright</span>
-        </div>
-        <div class="links">
-          <a href="https://github.com/Yashwanth-pilli/ILLIP-AI" target="_blank" rel="noopener">Repository ↗</a>
-        </div>
-      </div>
-      <div class="card g reveal">
-        <h3>QuantumShield BioDefense OS</h3>
-        <div class="tag">live cyber command center</div>
-        <p>A real-time cybersecurity dashboard — mission control for biodefense threat monitoring. Live telemetry, alert surfaces, and an operator-grade layout that looks like a hacker-film war room and actually updates in real time.</p>
-        <div class="chips">
-          <span class="chip">JavaScript</span><span class="chip">Live Dashboard</span>
-          <span class="chip">Security UI</span><span class="chip">Real-time</span>
-        </div>
-        <div class="links">
-          <a href="https://github.com/Yashwanth-pilli/quantumshield-biodefense-os" target="_blank" rel="noopener">Repository ↗</a>
-        </div>
-      </div>
+    <p class="body">I'm a Computer Science &amp; Engineering student and co-founder of <b style="color:var(--ink)">utter.sh</b>, with hands-on experience across AI agents, backend systems, automation, and cybersecurity. I build practical systems — multi-LLM integrations, secure applications, and AI-powered IT-support workflows — with a strong focus on real-world product development.</p>
+    <div class="stat-row">
+      <div class="stat"><b>230+</b><span>LeetCode solved</span></div>
+      <div class="stat"><b>5★</b><span>HackerRank Java/Python/SQL</span></div>
+      <div class="stat"><b>Gold</b><span>National Science Olympiad</span></div>
+      <div class="stat"><b>5+</b><span>Certifications</span></div>
     </div>
-  </div>
-</section>
+  </div></div></section>
 
-<section id="skills">
-  <div class="wrap">
-    <div class="kicker reveal">Toolkit</div>
-    <h2 class="reveal">Skills &amp; Tech</h2>
-    <div class="skills reveal">
-      <span class="skill"><b>·</b> Python</span>
-      <span class="skill"><b>·</b> FastAPI</span>
-      <span class="skill"><b>·</b> React</span>
-      <span class="skill"><b>·</b> JavaScript</span>
-      <span class="skill"><b>·</b> Ollama / Local LLMs</span>
-      <span class="skill"><b>·</b> LLM Agents</span>
-      <span class="skill"><b>·</b> Vite</span>
-      <span class="skill"><b>·</b> Tailwind</span>
-      <span class="skill"><b>·</b> SQLite</span>
-      <span class="skill"><b>·</b> Playwright</span>
-      <span class="skill"><b>·</b> Cybersecurity</span>
-      <span class="skill"><b>·</b> Git / GitHub Actions</span>
+  <!-- PROJECTS (auto-updated from GitHub) -->
+  <section id="projects"><div class="wrap"><div class="panel reveal">
+    <span class="kicker">Selected Work · auto-synced with GitHub</span>
+    <h2>Projects</h2>
+    <div class="grid" id="repo-grid">
+    <!-- PORTFOLIO-REPOS:START -->
+      <div class="card" style="--accent:var(--violet)"><h3>web_tutor_env</h3><div class="tag">project</div><p>A project on my GitHub.</p><div class="chips"><span class="chip">fork</span><span class="chip">★ 1</span></div><a class="lk" href="https://github.com/Yashwanth-pilli/web_tutor_env" target="_blank" rel="noopener">Repository ↗</a></div>
+      <div class="card" style="--accent:var(--green)"><h3>bugbusters</h3><div class="tag">project</div><p>A project on my GitHub.</p><div class="chips"><span class="chip">fork</span><span class="chip">★ 1</span></div><a class="lk" href="https://github.com/Yashwanth-pilli/bugbusters" target="_blank" rel="noopener">Repository ↗</a></div>
+      <div class="card" style="--accent:var(--gold)"><h3>quantumshield-biodefense-os</h3><div class="tag">live cyber command center</div><p>Real-time cybersecurity dashboard — mission control for biodefense threat monitoring with live telemetry and an operator-grade UI.</p><div class="chips"><span class="chip">JavaScript</span><span class="chip">★ 1</span></div><a class="lk" href="https://github.com/Yashwanth-pilli/quantumshield-biodefense-os" target="_blank" rel="noopener">Repository ↗</a></div>
+      <div class="card" style="--accent:var(--red)"><h3>ILLIP-AI</h3><div class="tag">your AI company, in your device</div><p>FastAPI-based local-first AI platform integrating multiple LLMs for assistant &amp; automation workflows — prompt handling, model routing, agent crew, memory, and a governance gate.</p><div class="chips"><span class="chip">Python</span></div><a class="lk" href="https://github.com/Yashwanth-pilli/ILLIP-AI" target="_blank" rel="noopener">Repository ↗</a></div>
+    <!-- PORTFOLIO-REPOS:END -->
     </div>
-  </div>
-</section>
+  </div></div></section>
 
-<section id="contact">
-  <div class="wrap reveal">
-    <div class="contact-box">
-      <div class="kicker">Get in touch</div>
-      <h2>Let's build something that doesn't need the cloud.</h2>
-      <p>Open to opportunities, collaboration, and interesting problems.</p>
-      <div class="cta" style="justify-content:center">
-        <a class="btn primary" href="mailto:yashwanthpilli2005@gmail.com">yashwanthpilli2005@gmail.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/yashwanth-pilli-553b75342/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://github.com/Yashwanth-pilli" target="_blank" rel="noopener">GitHub</a>
-      </div>
+  <!-- SKILLS -->
+  <section id="skills"><div class="wrap"><div class="panel reveal">
+    <span class="kicker">Toolkit</span>
+    <h2>Skills &amp; Tech</h2>
+    <div class="skills">
+      <span class="skill"><b>·</b> Java</span><span class="skill"><b>·</b> Python</span><span class="skill"><b>·</b> SQL</span>
+      <span class="skill"><b>·</b> ABAP</span><span class="skill"><b>·</b> FastAPI</span><span class="skill"><b>·</b> Spring Boot</span>
+      <span class="skill"><b>·</b> Spring Security / JWT</span><span class="skill"><b>·</b> REST APIs</span><span class="skill"><b>·</b> DSA</span>
+      <span class="skill"><b>·</b> OOP</span><span class="skill"><b>·</b> DBMS</span><span class="skill"><b>·</b> Multithreading</span>
+      <span class="skill"><b>·</b> Git / Linux</span><span class="skill"><b>·</b> AWS Cloud Foundations</span><span class="skill"><b>·</b> Cybersecurity</span>
     </div>
-  </div>
-</section>
+  </div></div></section>
 
-<footer>
-  © <span id="yr"></span> Yashwanth Pilli · Built local-first · <i>"The best cloud is the one you don't need."</i>
-</footer>
+  <!-- EXPERIENCE -->
+  <section id="experience"><div class="wrap"><div class="panel reveal">
+    <span class="kicker">Experience &amp; Achievements</span>
+    <h2>The record.</h2>
+    <ul class="exp">
+      <li><b>Industrial Training Intern — ONGC.</b> AI-powered IT asset &amp; support management system; applied AI + backend to improve support workflows and asset tracking.</li>
+      <li><b>Cybersecurity Internships — Palo Alto Networks, Deloitte (Forage), Exceler.</b> Network security, secure-systems thinking, and incident-response simulations.</li>
+      <li><b>Co-Founder — utter.sh.</b> AI-driven automation platform; backend architecture, LLM integrations, orchestration design.</li>
+      <li><b>Certifications.</b> SAP Back-End Developer (ABAP Cloud) · AWS Academy Cloud Foundations · Alibaba Cloud Developer · Infosys Java · NPTEL Java (90%).</li>
+    </ul>
+  </div></div></section>
+
+  <!-- CONTACT -->
+  <section id="contact"><div class="wrap"><div class="panel reveal" style="text-align:center">
+    <span class="kicker">Get in touch</span>
+    <h2>Let's build something that doesn't need the cloud.</h2>
+    <p class="body" style="margin:0 auto 22px">Open to opportunities, collaboration, and hard problems.</p>
+    <div class="cta" style="justify-content:center">
+      <a class="btn primary" href="mailto:yashwanthpilli2005@gmail.com">yashwanthpilli2005@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/yashwanth-pilli-553b75342/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/Yashwanth-pilli" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div></div></section>
+</main>
+
+<footer>© <span id="yr"></span> Yashwanth Dharan Tej Pilli · Rajahmundry / Hyderabad · <i>"The best cloud is the one you don't need."</i></footer>
+
+<div class="hint" id="hint">scroll to fight ↓</div>
 
 <script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-  const io = new IntersectionObserver((es)=>es.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
-  }),{threshold:.08,rootMargin:'0px 0px -6% 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // safety net: never leave any section hidden, whatever the scroll path
-  setTimeout(()=>document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in')),2200);
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* intro */
+const intro=document.getElementById('intro');
+document.getElementById('enterBtn').addEventListener('click',()=>{intro.classList.add('gone');});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+setTimeout(()=>document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in')),2500);
+
+/* calm mode (simple toggle, remembered) */
+const body=document.body, ct=document.getElementById('calm-toggle');
+function setCalm(on){body.classList.toggle('calm',on);ct.textContent=on?'☾ Combat: OFF':'⚔ Combat: ON';localStorage.setItem('calm',on?'1':'0');}
+setCalm(localStorage.getItem('calm')==='1');
+ct.addEventListener('click',()=>setCalm(!body.classList.contains('calm')));
+
+/* ── scroll-driven combat engine ── */
+const hero=document.getElementById('hero'), combat=document.getElementById('combat');
+const SFX=['POW!','KAPOW!','HYAA!','WHAM!','BAM!','KIAI!','THWACK!'];
+let lastY=window.scrollY, acc=0, busy=false;
+
+function rnd(a,b){return a+Math.random()*(b-a);}
+function fxText(x,y){const el=document.createElement('div');el.className='fx burst';el.textContent=SFX[Math.floor(Math.random()*SFX.length)];el.style.left=x+'px';el.style.top=y+'px';combat.appendChild(el);requestAnimationFrame(()=>el.classList.add('go'));setTimeout(()=>el.remove(),600);}
+function starBurst(x,y){const s=document.createElement('div');s.className='star';s.style.left=x+'px';s.style.top=y+'px';combat.appendChild(s);requestAnimationFrame(()=>s.classList.add('go'));setTimeout(()=>s.remove(),450);}
+
+function attack(){
+  if(busy||body.classList.contains('calm'))return;
+  busy=true;
+  const rect=hero.getBoundingClientRect();
+  const hx=rect.right, hy=rect.top+rect.height*0.4;
+  // spawn enemy charging from the right
+  const en=document.createElement('div');en.className='enemy';
+  en.innerHTML='<div class="head"></div><div class="torso"></div><div class="arm"></div><div class="leg a"></div><div class="leg b"></div>';
+  en.style.left=(window.innerWidth+40)+'px';
+  en.style.transform='scaleX(-1)';
+  combat.appendChild(en);
+  const meet=hx+rnd(46,80);
+  requestAnimationFrame(()=>{en.style.left=meet+'px';});
+  // strike
+  const move=Math.random()<0.5?'punch':'kick';
+  setTimeout(()=>{
+    hero.classList.add(move);
+    setTimeout(()=>{
+      // impact
+      starBurst(hx+30,hy); fxText(hx+40,hy-10);
+      body.classList.add('shake'); setTimeout(()=>body.classList.remove('shake'),280);
+      hero.classList.add('hit');
+      // knock enemy away
+      en.style.transform='scaleX(-1) translateX(240px) translateY(-40px) rotate(40deg)';
+      en.classList.add('ko');
+      setTimeout(()=>{hero.classList.remove(move,'hit');},280);
+      setTimeout(()=>en.remove(),600);
+      busy=false;
+    },140);
+  },170);
+}
+
+let ticking=false;
+window.addEventListener('scroll',()=>{
+  if(ticking)return;ticking=true;
+  requestAnimationFrame(()=>{
+    const y=window.scrollY; acc+=Math.abs(y-lastY); lastY=y;
+    document.getElementById('hint').style.opacity = y>200?0:.7;
+    if(acc>240){acc=0;attack();}
+    ticking=false;
+  });
+},{passive:true});
 </script>
 </body>
 </html>
