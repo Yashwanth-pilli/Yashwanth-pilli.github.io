@@ -115,16 +115,16 @@ body.calm .stars,body.calm .skyline::after{animation:none}
 #intro{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;
   background:radial-gradient(circle at 50% 40%,#141033,#05060d 70%);text-align:center;padding:24px;transition:opacity .8s,visibility .8s}
 #intro.gone{opacity:0;visibility:hidden}
-.inv-eyebrow{font-family:var(--mono);letter-spacing:.3em;text-transform:uppercase;color:var(--violet);font-size:.8rem;margin-bottom:18px;opacity:0;animation:up .7s .2s forwards}
+.inv-eyebrow{font-family:var(--mono);letter-spacing:.3em;text-transform:uppercase;color:var(--violet);font-size:.8rem;margin-bottom:18px;animation:up .7s .2s both}
 .avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;border:2px solid var(--violet);
   box-shadow:0 0 50px rgba(139,123,255,.6);margin-bottom:24px;background:
-   radial-gradient(circle at 40% 35%,var(--violet),var(--violet2) 60%,#241d55);opacity:0;animation:up .7s .35s forwards,float 3s ease-in-out infinite 1s;display:flex;align-items:center;justify-content:center;font-size:60px}
-.inv-title{font-size:clamp(1.5rem,5vw,2.6rem);font-weight:800;line-height:1.2;opacity:0;animation:up .7s .5s forwards}
+   radial-gradient(circle at 40% 35%,var(--violet),var(--violet2) 60%,#241d55);animation:up .7s .35s both,float 3s ease-in-out infinite 1s;display:flex;align-items:center;justify-content:center;font-size:60px}
+.inv-title{font-size:clamp(1.5rem,5vw,2.6rem);font-weight:800;line-height:1.2;animation:up .7s .5s both}
 .inv-title b{color:var(--violet)}
-.inv-sub{color:var(--muted);margin:14px 0 30px;max-width:440px;opacity:0;animation:up .7s .65s forwards}
+.inv-sub{color:var(--muted);margin:14px 0 30px;max-width:440px;animation:up .7s .65s both}
 .enter-btn{font-family:var(--mono);font-weight:700;letter-spacing:.15em;padding:15px 40px;border-radius:12px;cursor:pointer;
   background:linear-gradient(90deg,var(--violet2),var(--violet));color:#fff;border:none;font-size:1rem;
-  box-shadow:0 12px 40px -12px var(--violet);opacity:0;animation:up .7s .8s forwards;transition:transform .2s}
+  box-shadow:0 12px 40px -12px var(--violet);animation:up .7s .8s both;transition:transform .2s}
 .enter-btn:hover{transform:translateY(-3px) scale(1.03)}
 @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @keyframes float{50%{transform:translateY(-10px)}}
