@@ -6,140 +6,168 @@
 <title>Yashwanth Dharan Tej Pilli — Resume</title>
 <meta name="description" content="Resume of Yashwanth Dharan Tej Pilli — AI & Backend Engineer, Co-founder of utter.sh."/>
 <style>
-  :root{--ink:#141414;--muted:#444;--accent:#5b4bd6;--line:#d9d9e3;--bg:#fff}
+  :root{--ink:#1a1a1a;--muted:#555;--accent:#1f3a8a;--line:#c9cede;--bg:#fff}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#e9e9ef;color:var(--ink);
-    font-family:Georgia,'Times New Roman',serif;line-height:1.42;font-size:14px}
-  .toolbar{max-width:820px;margin:14px auto 0;display:flex;justify-content:flex-end;gap:10px;padding:0 10px}
-  .toolbar button,.toolbar a{font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:600;
-    padding:9px 16px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;text-decoration:none}
-  .toolbar a.ghost{background:#fff;color:var(--accent)}
-  .page{max-width:820px;margin:12px auto 40px;background:var(--bg);padding:44px 52px;
-    box-shadow:0 10px 40px rgba(0,0,0,.15)}
-  h1{font-size:26px;letter-spacing:.3px;font-family:Arial,Helvetica,sans-serif}
-  .role{font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:var(--accent);
-    letter-spacing:.6px;text-transform:uppercase;margin:3px 0 8px}
-  .contact{font-family:Arial,Helvetica,sans-serif;font-size:13.5px;color:var(--muted);line-height:1.6}
-  .contact a{color:var(--accent);text-decoration:none;font-weight:700}
-  .links{font-family:Arial,Helvetica,sans-serif;margin-top:8px;display:flex;flex-wrap:wrap;gap:10px}
-  .links a{font-size:13.5px;font-weight:700;color:#fff;background:var(--accent);text-decoration:none;
-    padding:6px 14px;border-radius:6px}
-  @media print{.links a{color:var(--accent)!important;background:#fff;border:1px solid var(--accent);padding:2px 8px}}
-  h2{font-family:Arial,Helvetica,sans-serif;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;
-    color:var(--accent);border-bottom:1.5px solid var(--line);padding-bottom:4px;margin:18px 0 9px}
-  p,li{color:var(--ink)}
-  .summary{margin-bottom:2px}
-  .row{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
-  .row .t{font-weight:700;font-family:Arial,Helvetica,sans-serif;font-size:13.5px}
-  .row .d{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:var(--muted);white-space:nowrap}
-  .sub{font-style:italic;color:var(--muted);font-size:13px;margin-bottom:3px}
-  ul{margin:4px 0 10px 18px} li{margin-bottom:3px}
-  .skills-tbl{width:100%;border-collapse:collapse;margin-top:2px}
-  .skills-tbl td{padding:3px 0;vertical-align:top;font-size:13.5px}
-  .skills-tbl td.k{font-family:Arial,Helvetica,sans-serif;font-weight:700;width:190px;color:var(--ink)}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:2px 26px}
-  .note{max-width:820px;margin:0 auto 16px;padding:0 10px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#666}
+  body{background:#eef0f5;color:var(--ink);
+    font-family:'Segoe UI',Calibri,Arial,Helvetica,sans-serif;font-size:14px;line-height:1.4}
+
+  .bar{max-width:800px;margin:16px auto 0;display:flex;justify-content:flex-end;gap:10px;padding:0 12px}
+  .bar a,.bar button{font-size:13px;font-weight:600;padding:9px 16px;border-radius:7px;cursor:pointer;
+    text-decoration:none;border:1px solid var(--accent)}
+  .bar button{background:var(--accent);color:#fff}
+  .bar a{background:#fff;color:var(--accent)}
+
+  .sheet{max-width:800px;margin:12px auto 48px;background:var(--bg);padding:40px 46px;
+    box-shadow:0 8px 34px rgba(0,0,0,.14)}
+
+  header{border-bottom:2.5px solid var(--accent);padding-bottom:12px;margin-bottom:14px}
+  .name{font-size:27px;font-weight:800;letter-spacing:.2px;color:#111}
+  .headline{font-size:13.5px;font-weight:700;color:var(--accent);letter-spacing:.4px;margin-top:2px}
+  .meta{font-size:12.8px;color:var(--muted);margin-top:8px}
+  .meta a{color:var(--accent);font-weight:600;text-decoration:none}
+  .meta .sep{color:var(--line);margin:0 7px}
+
+  section{margin-top:15px}
+  h2{font-size:12.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);
+    border-bottom:1px solid var(--line);padding-bottom:3px;margin-bottom:8px}
+  p.sum{font-size:13.2px;color:#333}
+
+  .item{margin-bottom:9px}
+  .item:last-child{margin-bottom:0}
+  .head-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .title{font-weight:700;font-size:13.6px;color:#111}
+  .org{font-style:italic;color:var(--muted);font-size:12.8px}
+  ul{list-style:none;margin:3px 0 0}
+  li{position:relative;padding-left:14px;font-size:13px;color:#333;margin-bottom:2px}
+  li::before{content:"▪";position:absolute;left:0;color:var(--accent);font-size:11px;top:1px}
+
+  .skills-grid{display:grid;grid-template-columns:150px 1fr;row-gap:5px;column-gap:12px;font-size:13px}
+  .skills-grid .k{font-weight:700;color:#111}
+  .two{columns:2;column-gap:30px;font-size:13px}
+  .two p{padding-left:14px;position:relative;margin-bottom:3px;break-inside:avoid}
+  .two p::before{content:"▪";position:absolute;left:0;color:var(--accent);font-size:11px}
+  .tag{font-size:12px;color:var(--muted);font-weight:600}
+
   @media print{
-    body{background:#fff;font-size:11.4px}
-    .toolbar,.note{display:none}
-    .page{box-shadow:none;margin:0;max-width:none;padding:0}
-    @page{size:A4;margin:14mm 15mm}
-    h1{font-size:22px} a{color:var(--ink)!important}
+    body{background:#fff;font-size:11px}
+    .bar{display:none}
+    .sheet{box-shadow:none;margin:0;max-width:none;padding:0}
+    @page{size:A4;margin:13mm 14mm}
+    a{color:var(--accent)!important}
+    .name{font-size:23px}
   }
 </style>
 </head>
 <body>
 
-<div class="toolbar">
-  <a class="ghost" href="index.html">← Portfolio</a>
+<div class="bar">
+  <a href="index.html">← Portfolio</a>
   <button onclick="window.print()">⤓ Download PDF</button>
 </div>
-<p class="note">Tip: click "Download PDF" → in the print dialog choose "Save as PDF".</p>
 
-<div class="page">
-  <h1>Yashwanth Dharan Tej Pilli</h1>
-  <div class="role">AI &amp; Backend Engineer · Multi-LLM Systems · Cybersecurity</div>
-  <div class="contact">
-    Rajahmundry / Hyderabad, India &nbsp;|&nbsp; +91 87904 87399 &nbsp;|&nbsp;
-    <a href="mailto:yashwanthpilli2005@gmail.com">yashwanthpilli2005@gmail.com</a>
-  </div>
-  <div class="links">
-    <a href="https://github.com/Yashwanth-pilli" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/yashwanth-pilli-553b75342/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://yashwanth-pilli.github.io" target="_blank" rel="noopener">Portfolio</a>
-    <a href="https://leetcode.com/" target="_blank" rel="noopener">LeetCode</a>
-    <a href="https://www.hackerrank.com/" target="_blank" rel="noopener">HackerRank</a>
-  </div>
+<div class="sheet">
+  <header>
+    <div class="name">Yashwanth Dharan Tej Pilli</div>
+    <div class="headline">AI &amp; Backend Engineer · Co-Founder, utter.sh</div>
+    <div class="meta">
+      Rajahmundry / Hyderabad, India <span class="sep">|</span>
+      +91 87904 87399 <span class="sep">|</span>
+      <a href="mailto:yashwanthpilli2005@gmail.com">yashwanthpilli2005@gmail.com</a><br/>
+      <a href="https://github.com/Yashwanth-pilli" target="_blank" rel="noopener">GitHub</a> <span class="sep">|</span>
+      <a href="https://www.linkedin.com/in/yashwanth-pilli-553b75342/" target="_blank" rel="noopener">LinkedIn</a> <span class="sep">|</span>
+      <a href="https://yashwanth-pilli.github.io" target="_blank" rel="noopener">Portfolio</a> <span class="sep">|</span>
+      <a href="https://leetcode.com/" target="_blank" rel="noopener">LeetCode</a> <span class="sep">|</span>
+      <a href="https://www.hackerrank.com/" target="_blank" rel="noopener">HackerRank</a>
+    </div>
+  </header>
 
-  <h2>Professional Summary</h2>
-  <p class="summary">AI &amp; Backend Engineer and Computer Science undergraduate with hands-on experience building
-  multi-LLM backends, secure REST APIs, and automation systems. Co-founder of utter.sh. Proficient in Python, Java,
-  FastAPI, and Spring Boot, with a strong focus on scalable, production-ready product development and applied
-  cybersecurity. Solved 230+ algorithmic problems and hold 5-star ratings on HackerRank.</p>
+  <section>
+    <h2>Summary</h2>
+    <p class="sum">Computer Science engineer and AI builder, and co-founder of utter.sh, with hands-on experience across
+    multi-LLM backends, secure REST APIs, automation, and cybersecurity. I build practical, production-ready systems
+    with a local-first, privacy-first mindset. 230+ algorithmic problems solved; 5-star rated on HackerRank.</p>
+  </section>
 
-  <h2>Technical Skills</h2>
-  <table class="skills-tbl">
-    <tr><td class="k">Languages</td><td>Java, Python, SQL, ABAP</td></tr>
-    <tr><td class="k">Frameworks &amp; Tools</td><td>FastAPI, Spring Boot, Spring Security, JWT, REST APIs, Git, Linux</td></tr>
-    <tr><td class="k">Core CS</td><td>Data Structures &amp; Algorithms, OOP, DBMS, Multithreading, API Integration, Backend Architecture</td></tr>
-    <tr><td class="k">AI &amp; Automation</td><td>Multi-LLM Integration, LLM Agents, Prompt Engineering, Model Routing, Workflow Automation</td></tr>
-    <tr><td class="k">Cloud &amp; Security</td><td>AWS Cloud Foundations, Cybersecurity Fundamentals, Network Security, Secure Authentication (JWT/OAuth)</td></tr>
-  </table>
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="k">Languages</div><div>Java, Python, SQL, ABAP</div>
+      <div class="k">Frameworks &amp; Tools</div><div>FastAPI, Spring Boot, Spring Security, JWT, REST APIs, Git, Linux</div>
+      <div class="k">Core CS</div><div>Data Structures &amp; Algorithms, OOP, DBMS, Multithreading, API Integration</div>
+      <div class="k">AI &amp; Automation</div><div>Multi-LLM Integration, LLM Agents, Prompt Engineering, Model Routing, Workflow Automation</div>
+      <div class="k">Cloud &amp; Security</div><div>AWS Cloud Foundations, Cybersecurity Fundamentals, Network Security, JWT/OAuth</div>
+    </div>
+  </section>
 
-  <h2>Experience</h2>
-  <div class="row"><span class="t">Industrial Training Intern — ONGC</span></div>
-  <div class="sub">AI-Powered IT Asset &amp; Support Management System</div>
-  <ul>
-    <li>Completed industrial training building an AI-powered IT asset and support-management system.</li>
-    <li>Applied AI and backend development to streamline support workflows and improve asset-tracking accuracy.</li>
-  </ul>
+  <section>
+    <h2>Experience</h2>
+    <div class="item">
+      <div class="head-row"><span class="title">Industrial Training Intern — ONGC</span></div>
+      <div class="org">AI-Powered IT Asset &amp; Support Management System</div>
+      <ul>
+        <li>Built an AI-powered IT asset and support-management system during industrial training.</li>
+        <li>Applied AI and backend development to streamline support workflows and improve asset-tracking accuracy.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="head-row"><span class="title">Co-Founder — utter.sh</span></div>
+      <div class="org">AI Agents &amp; Automation Platform</div>
+      <ul>
+        <li>Co-founded an AI-driven automation platform for developer and business workflows.</li>
+        <li>Built backend architecture, integrated multiple LLMs, and designed orchestration for real-world use cases.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="head-row"><span class="title">Cybersecurity Internships — Palo Alto Networks, Deloitte (Forage), Exceler</span></div>
+      <ul>
+        <li>Palo Alto Networks &amp; Deloitte (Forage): network security, secure-systems thinking, and incident-response simulations.</li>
+        <li>Exceler: hands-on threat awareness, secure practices, and vulnerability analysis.</li>
+      </ul>
+    </div>
+  </section>
 
-  <div class="row"><span class="t">Co-Founder — utter.sh</span></div>
-  <div class="sub">AI Agents &amp; Automation Platform</div>
-  <ul>
-    <li>Co-founded an AI-driven automation platform for developer and business workflows.</li>
-    <li>Built backend architecture and integrated multiple LLMs; designed orchestration for real-world use cases.</li>
-  </ul>
+  <section>
+    <h2>Projects</h2>
+    <div class="item">
+      <div class="head-row"><span class="title">ILLIP AI — Local-First AI Platform / Multi-LLM Backend</span><span class="tag">Python · FastAPI</span></div>
+      <ul>
+        <li>Built a FastAPI-based AI platform integrating multiple LLMs for assistant and automation workflows.</li>
+        <li>Developed backend logic for prompt handling, model routing, API integration, and scalable deployment.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="head-row"><span class="title">QuantumShield BioDefense OS — Real-Time Cybersecurity Dashboard</span><span class="tag">JavaScript</span></div>
+      <ul><li>Developed a live cybersecurity command-center dashboard for real-time threat monitoring and alerting.</li></ul>
+    </div>
+    <div class="item">
+      <div class="head-row"><span class="title">Heat-to-Electricity System — AI + IoT Concept</span><span class="tag">Concept</span></div>
+      <ul><li>Designed a thermoelectric system to convert waste heat into usable electricity, with IoT-based efficiency monitoring.</li></ul>
+    </div>
+  </section>
 
-  <div class="row"><span class="t">Cybersecurity Internships — Palo Alto Networks, Deloitte (Forage), Exceler</span></div>
-  <ul>
-    <li>Palo Alto Networks: virtual internship on network security concepts and modern cyber threats.</li>
-    <li>Deloitte (Forage): cybersecurity job simulation covering secure-systems thinking and incident-response tasks.</li>
-    <li>Exceler: hands-on exposure to threat awareness, secure practices, and vulnerability analysis.</li>
-  </ul>
+  <section>
+    <h2>Achievements</h2>
+    <ul>
+      <li>Solved 230+ problems on LeetCode; earned 5-star ratings in Java, Python, and SQL on HackerRank.</li>
+      <li>Gold Medalist, National Science Olympiad; published a research paper in technology and cybersecurity.</li>
+    </ul>
+  </section>
 
-  <h2>Projects</h2>
-  <div class="row"><span class="t">ILLIP AI — Local-First AI Platform / Multi-LLM Backend</span><span class="d">Python · FastAPI</span></div>
-  <ul>
-    <li>Built a FastAPI-based AI platform integrating multiple LLMs for assistant and automation workflows.</li>
-    <li>Developed backend logic for prompt handling, model routing, API integration, and scalable deployment.</li>
-  </ul>
-  <div class="row"><span class="t">QuantumShield BioDefense OS — Real-Time Cybersecurity Dashboard</span><span class="d">JavaScript</span></div>
-  <ul>
-    <li>Developed a live cybersecurity command-center dashboard for real-time threat monitoring and alerting.</li>
-  </ul>
-  <div class="row"><span class="t">Heat-to-Electricity System — AI + IoT Concept</span><span class="d">Concept</span></div>
-  <ul>
-    <li>Designed a thermoelectric system to convert waste heat into usable electricity, with IoT-based efficiency monitoring.</li>
-  </ul>
+  <section>
+    <h2>Certifications</h2>
+    <div class="two">
+      <p>SAP Certified — Back-End Developer, ABAP Cloud</p>
+      <p>AWS Academy Graduate — Cloud Foundations</p>
+      <p>Alibaba Cloud Certified Developer</p>
+      <p>Java Developer — Infosys Springboard</p>
+      <p>NPTEL — Programming in Java (90%)</p>
+    </div>
+  </section>
 
-  <h2>Achievements</h2>
-  <ul>
-    <li>Solved 230+ problems on LeetCode; earned 5-star ratings in Java, Python, and SQL on HackerRank.</li>
-    <li>Gold Medalist, National Science Olympiad; published a research paper in technology and cybersecurity.</li>
-  </ul>
-
-  <h2>Certifications</h2>
-  <div class="two">
-    <p>• SAP Certified — Back-End Developer, ABAP Cloud</p>
-    <p>• AWS Academy Graduate — Cloud Foundations</p>
-    <p>• Alibaba Cloud Certified Developer</p>
-    <p>• Java Developer — Infosys Springboard</p>
-    <p>• NPTEL — Programming in Java (90%)</p>
-  </div>
-
-  <h2>Education</h2>
-  <div class="row"><span class="t">B.Tech in Computer Science and Engineering — Pragati Engineering College</span></div>
+  <section>
+    <h2>Education</h2>
+    <div class="head-row"><span class="title">B.Tech in Computer Science and Engineering — Pragati Engineering College</span></div>
+  </section>
 </div>
 
 </body>
