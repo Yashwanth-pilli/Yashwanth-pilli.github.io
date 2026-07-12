@@ -16,6 +16,7 @@
     text-decoration:none;border:1px solid var(--accent)}
   .bar button{background:var(--accent);color:#fff}
   .bar a{background:#fff;color:var(--accent)}
+  .bar a.dl{background:var(--accent);color:#fff}
 
   .sheet{max-width:800px;margin:12px auto 48px;background:var(--bg);padding:40px 46px;
     box-shadow:0 8px 34px rgba(0,0,0,.14)}
@@ -49,12 +50,21 @@
   .tag{font-size:12px;color:var(--muted);font-weight:600}
 
   @media print{
-    body{background:#fff;font-size:11px}
+    body{background:#fff;font-size:10px;line-height:1.3}
     .bar{display:none}
     .sheet{box-shadow:none;margin:0;max-width:none;padding:0}
-    @page{size:A4;margin:13mm 14mm}
+    @page{size:A4;margin:9mm 11mm}
     a{color:var(--accent)!important}
-    .name{font-size:23px}
+    .name{font-size:20px}
+    .headline{font-size:11.5px} .meta{font-size:10px;margin-top:5px}
+    header{padding-bottom:7px;margin-bottom:8px}
+    section{margin-top:8px}
+    h2{font-size:10.5px;margin-bottom:4px;padding-bottom:2px}
+    p.sum{font-size:10px}
+    .item{margin-bottom:5px}
+    .title{font-size:10.5px} .org{font-size:9.6px}
+    li{font-size:9.8px;margin-bottom:1px}
+    .skills-grid,.two,.tag{font-size:9.8px}
   }
 </style>
 </head>
@@ -62,7 +72,7 @@
 
 <div class="bar">
   <a href="index.html">← Portfolio</a>
-  <button onclick="window.print()">⤓ Download PDF</button>
+  <a href="Yashwanth_Pilli_Resume.pdf" download class="dl">⤓ Download PDF</a>
 </div>
 
 <div class="sheet">
