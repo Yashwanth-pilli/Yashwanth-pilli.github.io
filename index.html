@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yashwanth Pilli — Local-First AI Systems Engineer</title>
+<meta name="description" content="Yashwanth Pilli — AI systems builder. I build AI that runs on your own machine. Creator of ILLIP AI and QuantumShield BioDefense OS."/>
+<style>
+  :root{
+    --bg:#0b0d12; --bg2:#0f1219; --panel:#141824; --line:#232a3a;
+    --text:#e6e9f0; --muted:#9aa4b8; --violet:#8b7bff; --violet2:#6d5efc; --green:#00e676;
+    --radius:16px; --max:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(60rem 40rem at 80% -10%, rgba(139,123,255,.18), transparent 60%),
+      radial-gradient(50rem 40rem at -10% 20%, rgba(0,230,118,.10), transparent 55%);
+    background-attachment:fixed;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:rgba(11,13,18,.72);border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800;letter-spacing:.5px}
+  .brand b{color:var(--violet)}
+  .navlinks{display:flex;gap:26px}
+  .navlinks a{color:var(--muted);font-size:.95rem;transition:color .2s}
+  .navlinks a:hover{color:var(--text)}
+  @media(max-width:640px){.navlinks{display:none}}
+  /* hero */
+  header.hero{padding:96px 0 72px}
+  .eyebrow{
+    display:inline-block;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;
+    color:var(--violet);border:1px solid var(--line);border-radius:999px;
+    padding:6px 14px;margin-bottom:22px;background:var(--panel)
+  }
+  h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;font-weight:800;letter-spacing:-1px}
+  h1 .grad{
+    background:linear-gradient(90deg,var(--violet),var(--green));
+    -webkit-background-clip:text;background-clip:text;color:transparent
+  }
+  .lead{color:var(--muted);font-size:clamp(1.05rem,2.4vw,1.3rem);max-width:640px;margin:22px 0 32px}
+  .cta{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem;
+    padding:12px 20px;border-radius:12px;border:1px solid var(--line);transition:.2s;
+    background:var(--panel)
+  }
+  .btn:hover{transform:translateY(-2px);border-color:var(--violet)}
+  .btn.primary{background:linear-gradient(90deg,var(--violet2),var(--violet));border:none;color:#fff}
+  .btn.primary:hover{box-shadow:0 10px 30px -10px var(--violet)}
+  /* sections */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .kicker{color:var(--violet);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.78rem}
+  h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:8px 0 24px;font-weight:800;letter-spacing:-.5px}
+  .about p{color:var(--muted);max-width:760px;font-size:1.08rem}
+  .about p+p{margin-top:16px}
+  /* projects */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{
+    background:linear-gradient(180deg,var(--panel),var(--bg2));
+    border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+    transition:.25s;position:relative;overflow:hidden
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--violet)}
+  .card::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--accent,var(--violet))}
+  .card.v{--accent:var(--violet)} .card.g{--accent:var(--green)}
+  .card h3{font-size:1.35rem;margin-bottom:4px}
+  .card .tag{color:var(--muted);font-size:.9rem;margin-bottom:14px;font-style:italic}
+  .card p{color:var(--muted);font-size:.98rem;margin-bottom:18px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .chip{font-size:.78rem;padding:5px 11px;border-radius:999px;background:#0d1117;border:1px solid var(--line);color:var(--text)}
+  .card .links{display:flex;gap:16px;font-weight:600;font-size:.9rem}
+  .card .links a{color:var(--violet)} .card.g .links a{color:var(--green)}
+  .card .links a:hover{text-decoration:underline}
+  /* skills */
+  .skills{display:flex;flex-wrap:wrap;gap:10px}
+  .skill{padding:9px 16px;border-radius:10px;background:var(--panel);border:1px solid var(--line);font-size:.9rem}
+  .skill b{color:var(--violet)}
+  /* contact */
+  .contact-box{
+    background:linear-gradient(120deg,rgba(139,123,255,.12),rgba(0,230,118,.08));
+    border:1px solid var(--line);border-radius:var(--radius);padding:40px;text-align:center
+  }
+  .contact-box h2{margin-bottom:10px}
+  .contact-box p{color:var(--muted);margin-bottom:24px}
+  footer{padding:40px 0;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+  .reveal{opacity:0;transform:translateY(18px);transition:.6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">YASHWANTH<b>.</b>PILLI</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">▶ Local-First AI Systems Engineer</span>
+    <h1>I build AI that runs on<br/><span class="grad">your own machine.</span></h1>
+    <p class="lead">No cloud leash. I turn ordinary laptops into private, offline AI systems — agent crews, memory, and real security tooling. Creator of ILLIP AI and QuantumShield BioDefense OS.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/Yashwanth-pilli" target="_blank" rel="noopener">View GitHub →</a>
+      <a class="btn" href="https://www.linkedin.com/in/yashwanth-pilli-553b75342/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="mailto:yashwanthpilli2005@gmail.com">Email me</a>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <div class="wrap reveal">
+    <div class="kicker">About</div>
+    <h2>Privacy-first by design.</h2>
+    <p>I'm an AI systems builder focused on <b style="color:var(--text)">local-first</b> software — systems where your data never leaves your device. I care about the craft: making powerful models genuinely usable on real, modest hardware, with the safety rails and polish of a product, not a demo.</p>
+    <p>My flagship, <b style="color:var(--text)">ILLIP AI</b>, is an entire AI company that lives inside one laptop — chat, an autonomous agent crew, long-term memory, and a governance gate that asks before it acts. Alongside it I build security tooling like <b style="color:var(--text)">QuantumShield BioDefense OS</b>, a real-time cyber command center.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="kicker reveal">Selected Work</div>
+    <h2 class="reveal">Projects</h2>
+    <div class="grid">
+      <div class="card v reveal">
+        <h3>ILLIP AI</h3>
+        <div class="tag">your AI company, in your device</div>
+        <p>A local-first AI platform: chat, an autonomous agent crew, long-term memory, a supervised governance gate, and a model store sized to your exact hardware. Fully offline on Ollama, with an optional free-cloud boost via <code>/cloud</code>. One-click setup. Not a wrapper — a whole system.</p>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">FastAPI</span>
+          <span class="chip">React</span><span class="chip">Ollama</span><span class="chip">Playwright</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/Yashwanth-pilli/ILLIP-AI" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </div>
+      <div class="card g reveal">
+        <h3>QuantumShield BioDefense OS</h3>
+        <div class="tag">live cyber command center</div>
+        <p>A real-time cybersecurity dashboard — mission control for biodefense threat monitoring. Live telemetry, alert surfaces, and an operator-grade layout that looks like a hacker-film war room and actually updates in real time.</p>
+        <div class="chips">
+          <span class="chip">JavaScript</span><span class="chip">Live Dashboard</span>
+          <span class="chip">Security UI</span><span class="chip">Real-time</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/Yashwanth-pilli/quantumshield-biodefense-os" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="kicker reveal">Toolkit</div>
+    <h2 class="reveal">Skills &amp; Tech</h2>
+    <div class="skills reveal">
+      <span class="skill"><b>·</b> Python</span>
+      <span class="skill"><b>·</b> FastAPI</span>
+      <span class="skill"><b>·</b> React</span>
+      <span class="skill"><b>·</b> JavaScript</span>
+      <span class="skill"><b>·</b> Ollama / Local LLMs</span>
+      <span class="skill"><b>·</b> LLM Agents</span>
+      <span class="skill"><b>·</b> Vite</span>
+      <span class="skill"><b>·</b> Tailwind</span>
+      <span class="skill"><b>·</b> SQLite</span>
+      <span class="skill"><b>·</b> Playwright</span>
+      <span class="skill"><b>·</b> Cybersecurity</span>
+      <span class="skill"><b>·</b> Git / GitHub Actions</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="contact-box">
+      <div class="kicker">Get in touch</div>
+      <h2>Let's build something that doesn't need the cloud.</h2>
+      <p>Open to opportunities, collaboration, and interesting problems.</p>
+      <div class="cta" style="justify-content:center">
+        <a class="btn primary" href="mailto:yashwanthpilli2005@gmail.com">yashwanthpilli2005@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/yashwanth-pilli-553b75342/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/Yashwanth-pilli" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="yr"></span> Yashwanth Pilli · Built local-first · <i>"The best cloud is the one you don't need."</i>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
