@@ -49,8 +49,14 @@ def all_repos():
 
 
 def order(repos):
-    return sorted(repos, key=lambda r: (-(r.get("stargazers_count") or 0),
-                  tuple(-ord(c) for c in (r.get("pushed_at") or "")), r["name"].lower()))
+    # featured flagships first, then originals, then forks; within each by stars/recency
+    def rank(r):
+        if r["name"].lower() in FEATURE:
+            return 0
+        return 2 if r.get("fork") else 1
+    return sorted(repos, key=lambda r: (
+        rank(r), -(r.get("stargazers_count") or 0),
+        tuple(-ord(c) for c in (r.get("pushed_at") or "")), r["name"].lower()))
 
 
 def esc(s):
