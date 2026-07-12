@@ -64,24 +64,41 @@ a{color:inherit;text-decoration:none}
 
 /* ══════════ FIGHTERS (silhouettes) ══════════ */
 #combat{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
-.fighter{position:absolute;bottom:22%;left:15%;width:64px;height:150px;transform-origin:bottom center;
-  filter:drop-shadow(0 0 10px rgba(139,123,255,.55))}
-.fighter *{position:absolute;background:#0a0b16;box-shadow:inset 0 0 0 1.5px rgba(139,123,255,.55)}
+body.auto #combat{z-index:40}                       /* AUTO plays over the page */
+.fighter{position:absolute;bottom:22%;width:64px;height:150px;
+  filter:drop-shadow(0 0 12px rgba(139,123,255,.6));will-change:transform;
+  transition:transform .5s cubic-bezier(.3,.7,.3,1)}
+.fighter.dash{transition:transform .28s cubic-bezier(.35,0,.2,1)}
+.hero-f{left:0;transform:translate(15vw,0)}
+.hero-f .body{position:absolute;inset:0;transform-origin:bottom center;animation:bob 2.2s ease-in-out infinite}
+.fighter .body>*{position:absolute;background:#0a0b16;box-shadow:inset 0 0 0 1.6px rgba(139,123,255,.6)}
 .hero-f .head{width:26px;height:26px;border-radius:50%;left:19px;top:0}
 .hero-f .torso{width:26px;height:56px;border-radius:12px;left:19px;top:26px}
-.hero-f .arm{width:34px;height:11px;border-radius:8px;left:24px;top:34px;transform-origin:left center;transition:transform .12s ease}
-.hero-f .arm.back{top:40px;opacity:.7;transform:rotate(150deg)}
-.hero-f .arm.front{transform:rotate(140deg)}
-.hero-f .leg{width:12px;height:52px;border-radius:8px;top:78px;transform-origin:top center;transition:transform .12s ease}
-.hero-f .leg.back{left:20px;transform:rotate(12deg)}
+.hero-f .arm{width:12px;height:34px;border-radius:7px;top:30px;transform-origin:top center;transition:transform .1s ease}
+.hero-f .arm.back{left:16px;opacity:.75;transform:rotate(18deg)}
+.hero-f .arm.front{left:36px;transform:rotate(-18deg)}
+.hero-f .leg{width:12px;height:52px;border-radius:7px;top:78px;transform-origin:top center;transition:transform .1s ease}
+.hero-f .leg.back{left:20px;transform:rotate(10deg)}
 .hero-f .leg.front{left:32px;transform:rotate(-10deg)}
-.fighter{animation:bob 2.2s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-4px)}}
-/* strikes */
-.hero-f.punch .arm.front{transform:rotate(0deg) scaleX(1.5)}
-.hero-f.kick  .leg.front{transform:rotate(-78deg) scaleX(1.35)}
-.hero-f.hit{animation:recoil .3s}
-@keyframes recoil{30%{transform:translateX(-8px)}}
+/* RUN cycle */
+.hero-f.run .leg.front{animation:legA .36s linear infinite}
+.hero-f.run .leg.back{animation:legB .36s linear infinite}
+.hero-f.run .arm.front{animation:armA .36s linear infinite}
+.hero-f.run .arm.back{animation:armB .36s linear infinite}
+@keyframes legA{0%,100%{transform:rotate(-45deg)}50%{transform:rotate(45deg)}}
+@keyframes legB{0%,100%{transform:rotate(45deg)}50%{transform:rotate(-45deg)}}
+@keyframes armA{0%,100%{transform:rotate(50deg)}50%{transform:rotate(-42deg)}}
+@keyframes armB{0%,100%{transform:rotate(-42deg)}50%{transform:rotate(50deg)}}
+/* STRIKES + STUNTS */
+.hero-f.punch .arm.front{transform:rotate(-100deg) scaleY(1.4)!important;animation:none!important}
+.hero-f.punch .arm.back{transform:rotate(55deg)!important;animation:none!important}
+.hero-f.kick .leg.front{transform:rotate(-108deg) scaleY(1.35)!important;animation:none!important}
+.hero-f.spin .body{animation:spin360 .5s ease}
+.hero-f.spin .leg.front{transform:rotate(-95deg) scaleY(1.35)!important;animation:none!important}
+@keyframes spin360{to{transform:rotate(360deg)}}
+.hero-f.hit .body{animation:recoil .3s}
+@keyframes recoil{30%{transform:translateX(-8px) translateY(-2px)}}
 /* enemy */
 .enemy{position:absolute;bottom:22%;width:52px;height:120px;transform-origin:bottom center;
   filter:drop-shadow(0 0 8px rgba(255,59,107,.5));transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .4s}
@@ -106,9 +123,15 @@ a{color:inherit;text-decoration:none}
 body.shake #stage,body.shake #combat{animation:shake .28s}
 @keyframes shake{25%{transform:translate(4px,2px)}50%{transform:translate(-5px,-2px)}75%{transform:translate(3px,-3px)}}
 
+/* controls */
+#controls{position:fixed;top:16px;right:16px;z-index:55;display:flex;gap:8px}
+#controls button{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;padding:9px 14px;border-radius:999px;
+  border:1px solid var(--line);background:rgba(10,12,22,.82);color:var(--muted);cursor:pointer;backdrop-filter:blur(6px)}
+#controls button:hover{color:var(--ink);border-color:var(--violet)}
+#auto-btn.on{background:linear-gradient(90deg,var(--violet2),var(--violet));color:#fff;border-color:transparent}
 /* calm mode: freeze combat */
-body.calm #combat{opacity:.25;filter:grayscale(.6)}
-body.calm .fighter,body.calm .enemy{animation:none!important}
+body.calm #combat{opacity:.28;filter:grayscale(.5)}
+body.calm #combat *{animation-play-state:paused!important}
 body.calm .stars,body.calm .skyline::after{animation:none}
 
 /* ══════════ INTRO INVITATION ══════════ */
@@ -130,9 +153,6 @@ body.calm .stars,body.calm .skyline::after{animation:none}
 @keyframes float{50%{transform:translateY(-10px)}}
 
 /* ══════════ CONTENT ══════════ */
-#calm-toggle{position:fixed;top:16px;right:16px;z-index:50;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;
-  padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(10,12,22,.8);color:var(--muted);cursor:pointer;backdrop-filter:blur(6px)}
-#calm-toggle:hover{color:var(--ink);border-color:var(--violet)}
 main{position:relative;z-index:10}
 .wrap{max-width:1020px;margin:0 auto;padding:0 22px}
 section{padding:16vh 0;min-height:80vh;display:flex;align-items:center}
@@ -187,9 +207,11 @@ footer{position:relative;z-index:10;text-align:center;padding:44px 22px;color:va
 <!-- fighters -->
 <div id="combat">
   <div class="fighter hero-f" id="hero">
-    <div class="head"></div><div class="torso"></div>
-    <div class="arm back"></div><div class="arm front"></div>
-    <div class="leg back"></div><div class="leg front"></div>
+    <div class="body">
+      <div class="head"></div><div class="torso"></div>
+      <div class="arm back"></div><div class="arm front"></div>
+      <div class="leg back"></div><div class="leg front"></div>
+    </div>
   </div>
 </div>
 
@@ -203,7 +225,10 @@ footer{position:relative;z-index:10;text-align:center;padding:44px 22px;color:va
   <button class="enter-btn" id="enterBtn">ENTER THE DOJO →</button>
 </div>
 
-<button id="calm-toggle">⚔ Combat: ON</button>
+<div id="controls">
+  <button id="auto-btn">▶ AUTO FIGHT</button>
+  <button id="calm-toggle">⚔ Combat: ON</button>
+</div>
 
 <main>
   <!-- HERO -->
@@ -308,57 +333,66 @@ function setCalm(on){body.classList.toggle('calm',on);ct.textContent=on?'☾ Com
 setCalm(localStorage.getItem('calm')==='1');
 ct.addEventListener('click',()=>setCalm(!body.classList.contains('calm')));
 
-/* ── scroll-driven combat engine ── */
+/* ── combat engine: scroll strikes + AUTO cinematic ── */
 const hero=document.getElementById('hero'), combat=document.getElementById('combat');
-const SFX=['POW!','KAPOW!','HYAA!','WHAM!','BAM!','KIAI!','THWACK!'];
-let lastY=window.scrollY, acc=0, busy=false;
-
+const SFX=['POW!','KAPOW!','HYAA!','WHAM!','BAM!','KIAI!','THWACK!','BOOM!'];
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function rnd(a,b){return a+Math.random()*(b-a);}
+
+/* fighter transform state: x=vw, y=px, rot=deg, dir=facing */
+const st={x:15,y:0,rot:0,dir:1};
+function render(){hero.style.transform=`translate(${st.x}vw, ${st.y}px) rotate(${st.rot}deg) scaleX(${st.dir})`;}
+render();
+function face(d){st.dir=d;render();}
+
 function fxText(x,y){const el=document.createElement('div');el.className='fx burst';el.textContent=SFX[Math.floor(Math.random()*SFX.length)];el.style.left=x+'px';el.style.top=y+'px';combat.appendChild(el);requestAnimationFrame(()=>el.classList.add('go'));setTimeout(()=>el.remove(),600);}
 function starBurst(x,y){const s=document.createElement('div');s.className='star';s.style.left=x+'px';s.style.top=y+'px';combat.appendChild(s);requestAnimationFrame(()=>s.classList.add('go'));setTimeout(()=>s.remove(),450);}
+function impact(){const r=hero.getBoundingClientRect();const x=st.dir>0?r.right:r.left, y=r.top+r.height*.4;starBurst(x+st.dir*22,y);fxText(x+st.dir*32,y-12);body.classList.add('shake');setTimeout(()=>body.classList.remove('shake'),260);}
 
-function attack(){
-  if(busy||body.classList.contains('calm'))return;
-  busy=true;
-  const rect=hero.getBoundingClientRect();
-  const hx=rect.right, hy=rect.top+rect.height*0.4;
-  // spawn enemy charging from the right
-  const en=document.createElement('div');en.className='enemy';
-  en.innerHTML='<div class="head"></div><div class="torso"></div><div class="arm"></div><div class="leg a"></div><div class="leg b"></div>';
-  en.style.left=(window.innerWidth+40)+'px';
-  en.style.transform='scaleX(-1)';
-  combat.appendChild(en);
-  const meet=hx+rnd(46,80);
-  requestAnimationFrame(()=>{en.style.left=meet+'px';});
-  // strike
-  const move=Math.random()<0.5?'punch':'kick';
-  setTimeout(()=>{
-    hero.classList.add(move);
-    setTimeout(()=>{
-      // impact
-      starBurst(hx+30,hy); fxText(hx+40,hy-10);
-      body.classList.add('shake'); setTimeout(()=>body.classList.remove('shake'),280);
-      hero.classList.add('hit');
-      // knock enemy away
-      en.style.transform='scaleX(-1) translateX(240px) translateY(-40px) rotate(40deg)';
-      en.classList.add('ko');
-      setTimeout(()=>{hero.classList.remove(move,'hit');},280);
-      setTimeout(()=>en.remove(),600);
-      busy=false;
-    },140);
-  },170);
-}
+/* enemies */
+function spawnEnemy(fromRight=true){const en=document.createElement('div');en.className='enemy';en.innerHTML='<div class="head"></div><div class="torso"></div><div class="arm"></div><div class="leg a"></div><div class="leg b"></div>';en.dataset.side=fromRight?'r':'l';en.style.left=(fromRight?window.innerWidth+40:-70)+'px';en.style.transform=`scaleX(${fromRight?-1:1})`;combat.appendChild(en);const hb=hero.getBoundingClientRect();const meet=fromRight?hb.right+rnd(38,74):hb.left-rnd(38,74)-52;requestAnimationFrame(()=>{en.style.left=meet+'px';});return en;}
+function koEnemy(en){const dir=en.dataset.side==='r'?1:-1;en.style.transform=`scaleX(${dir>0?-1:1}) translateX(${dir*260}px) translateY(-60px) rotate(${dir*55}deg)`;en.classList.add('ko');setTimeout(()=>en.remove(),600);}
+function knock(){const en=combat.querySelector('.enemy:not(.ko)');if(en)koEnemy(en);}
+function knockAll(){combat.querySelectorAll('.enemy:not(.ko)').forEach(koEnemy);}
 
+/* moves (each returns a promise) */
+function poseFor(cls,ms){hero.classList.add(cls);setTimeout(()=>hero.classList.remove(cls),ms);}
+async function moveTo(vw,dash){face(vw>st.x?1:-1);hero.classList.toggle('dash',!!dash);hero.classList.add('run');st.x=vw;render();await sleep(dash?300:560);hero.classList.remove('run','dash');}
+async function punch(){poseFor('punch',260);await sleep(120);impact();hero.classList.add('hit');knock();setTimeout(()=>hero.classList.remove('hit'),300);await sleep(220);}
+async function kick(){poseFor('kick',300);await sleep(130);impact();knock();await sleep(240);}
+async function spinKick(){poseFor('spin',520);await sleep(230);impact();knockAll();await sleep(320);}
+async function flip(){st.y=-135;st.rot+=360*st.dir;render();await sleep(520);st.y=0;render();await sleep(240);}
+
+/* scroll strikes (only when AUTO off) */
+let lastY=window.scrollY,acc=0,busy=false,auto=false;
+async function scrollStrike(){if(busy||auto||body.classList.contains('calm'))return;busy=true;spawnEnemy();await sleep(220);await(Math.random()<.5?punch():kick());busy=false;}
 let ticking=false;
-window.addEventListener('scroll',()=>{
-  if(ticking)return;ticking=true;
-  requestAnimationFrame(()=>{
-    const y=window.scrollY; acc+=Math.abs(y-lastY); lastY=y;
-    document.getElementById('hint').style.opacity = y>200?0:.7;
-    if(acc>240){acc=0;attack();}
-    ticking=false;
-  });
-},{passive:true});
+window.addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{const y=window.scrollY;acc+=Math.abs(y-lastY);lastY=y;const h=document.getElementById('hint');if(h)h.style.opacity=y>200?0:.7;if(acc>240){acc=0;scrollStrike();}ticking=false;});},{passive:true});
+
+/* ── AUTO cinematic loop: run, fight waves, spin-kick, flip stunt, dash ── */
+const autoBtn=document.getElementById('auto-btn');
+async function autoLoop(){
+  while(auto&&!body.classList.contains('calm')){
+    await moveTo(rnd(20,28));
+    spawnEnemy(); await sleep(260); await punch();
+    spawnEnemy(); await sleep(200); await kick();
+    await moveTo(rnd(50,60),true);                 // dash forward
+    spawnEnemy(); spawnEnemy(); await sleep(240); await spinKick();
+    await flip();                                   // stunt
+    await moveTo(rnd(72,82));
+    spawnEnemy(false); await sleep(240); face(-1); await kick();
+    await moveTo(15,true);                          // dash home
+    await sleep(500);
+  }
+  hero.classList.remove('run','dash');
+}
+function setAuto(on){
+  auto=on; body.classList.toggle('auto',on);
+  autoBtn.classList.toggle('on',on);
+  autoBtn.textContent=on?'⏸ AUTO ON':'▶ AUTO FIGHT';
+  if(on){ if(body.classList.contains('calm'))setCalm(false); autoLoop(); }
+}
+autoBtn.addEventListener('click',()=>setAuto(!auto));
 </script>
 </body>
 </html>
