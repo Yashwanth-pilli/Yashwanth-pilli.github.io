@@ -211,8 +211,12 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+  }),{threshold:.08,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // safety net: never leave any section hidden, whatever the scroll path
+  setTimeout(()=>document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in')),2200);
 </script>
 </body>
 </html>
